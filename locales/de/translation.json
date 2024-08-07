@@ -19,5 +19,8 @@
 	"learne-text-finish2": " Sie haben ",
 	"learne-text-finish3": " Wörter gelernt!",
 	"home-link": "Meine Worten",
-	"change-language-btn": "Sprache"
+	"change-language-btn": "Sprache",
+	"footer-beta": "Das ist die Betaversion und kann Fehler enthalten. Wegen der Fehler melden Sie sich bitte bei mir",
+	"words-copy": "Worten Kopieren",
+	"words-chatgpt": "Sie können die Wörter kopieren, um sie in ChatGPT zu verwenden und Sätze damit zu erstellen."
 }
