@@ -1,0 +1,23 @@
+{
+	"wortebuch": "Mein Wortschatz",
+	"my-word-nav": "Meine Worten",
+	"add-word-nav": "Hinzufügen dein eigenes Wort",
+	"learn-nav": "Lernen",
+	"input-placeholder-word": "Wort",
+	"input-placeholder-translate": "Übersetzung",
+	"add-word-btn": "Hinzufügen",
+	"add-word-text": "Das Wort wurde erfolgreich  hinzugefügt!",
+	"modal-confirm-btn": "Speichern",
+	"delete-word-btn": "Löschen",
+	"learned-word-btn": "Gelearnt",
+	"word-title": "Gelernte Worten",
+	"add-word-title": "Hier kann man das eigenes Wort hinzufügen",
+	"no-words-text": "Es gibt keine gelernte Worten",
+	"must-5wort": "Sie müssen mindestens 5 Wörter hinzufügen",
+	"learne-title": "Hier können Sie Worten lernen",
+	"learne-text-finish1": "Das ist das Finish! Sie konnen jederzeit Worten nochmal lernen. ",
+	"learne-text-finish2": " Sie haben ",
+	"learne-text-finish3": " Wörter gelernt!",
+	"home-link": "Meine Worten",
+	"change-language-btn": "Sprache"
+}

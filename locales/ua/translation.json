@@ -1,0 +1,23 @@
+{
+	"wortebuch": "Мій словник",
+	"my-word-nav": "Мої слова",
+	"add-word-nav": "Додайте власне слово",
+	"learn-nav": "Вчити",
+	"input-placeholder-word": "Слово",
+	"input-placeholder-translate": "Переклад",
+	"add-word-btn": "Додати",
+	"add-word-text": "Слово успішно додано!",
+	"modal-confirm-btn": "Зберегти",
+	"delete-word-btn": "Видалити",
+	"learned-word-btn": "Вывчено",
+	"word-title": "Вивчені слова",
+	"add-word-title": "Ви можете додати тут своє слово",
+	"no-words-text": "Немає вивчених слів",
+	"must-5wort": "Ви повинні додати принаймні 5 слів",
+	"learne-title": "Тут можна вчити слова",
+	"learne-text-finish1": "Ось і фініш! Ви можете вивчити слова заново в будь-який час. ",
+	"learne-text-finish2": " Ви вивчили ",
+	"learne-text-finish3": " слів!",
+	"home-link": "Мої слова",
+	"change-language-btn": "Мова"
+}
