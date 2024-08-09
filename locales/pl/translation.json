@@ -22,5 +22,14 @@
 	"change-language-btn": "Język",
 	"footer-beta": "To jest wersja beta i może zawierać błędy. W razie błędów proszę się ze mną skontaktować.",
 	"words-copy": "Kopiuj słowa",
-	"words-chatgpt": "Możesz kopiować słowa, aby używać ich w ChatGPT do tworzenia zdań z nimi."
+	"words-chatgpt": "Możesz kopiować słowa, aby używać ich w ChatGPT do tworzenia zdań z nimi.",
+	"no-words-home": "Nie masz jeszcze żadnego słowa",
+	"words-count-learned1": "Słowo zostało wyuczone",
+	"words-count-learned2": "razy.",
+	"words-statistics-word": "Słowo",
+	"words-statistics-translation": "Tłumaczenie",
+	"words-statistics-count-learned": "Ilość nauk",
+	"words-statistics-count-mistake": "Liczba błędów",
+
+	"words-statistics-date": "Data dodania"
 }

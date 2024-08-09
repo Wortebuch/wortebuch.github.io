@@ -22,5 +22,13 @@
 	"change-language-btn": "Sprache",
 	"footer-beta": "Das ist die Betaversion und kann Fehler enthalten. Wegen der Fehler melden Sie sich bitte bei mir",
 	"words-copy": "Worten Kopieren",
-	"words-chatgpt": "Sie können die Wörter kopieren, um sie in ChatGPT zu verwenden und Sätze damit zu erstellen."
+	"words-chatgpt": "Sie können die Wörter kopieren, um sie in ChatGPT zu verwenden und Sätze damit zu erstellen.",
+	"no-words-home": "Du hast noch keine einzige Worten",
+	"words-count-learned1": "Das Wort wurde",
+	"words-count-learned2": "Mal gelernt.",
+	"words-statistics-word": "Wort",
+	"words-statistics-translation": "Übersetzung",
+	"words-statistics-count-learned": "Gelernt Anzahl",
+	"words-statistics-count-mistake": "Anzahl der Fehler",
+	"words-statistics-date": "Hinzugefügt am"
 }

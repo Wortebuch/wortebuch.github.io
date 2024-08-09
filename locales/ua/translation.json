@@ -22,5 +22,13 @@
 	"change-language-btn": "Мова",
 	"footer-beta": "Це бета-версія і може містити помилки. У разі помилок, будь ласка, зв'яжіться зі мною.",
 	"words-copy": "Копіювати слова",
-	"words-chatgpt": "Ви можете копіювати слова, щоб використовувати їх у ChatGPT для створення речень."
+	"words-chatgpt": "Ви можете копіювати слова, щоб використовувати їх у ChatGPT для створення речень.",
+	"no-words-home": "Немає жодного слова.",
+	"words-count-learned1": "Слово вивчено",
+	"words-count-learned2": "разів.",
+	"words-statistics-word": "Слово",
+	"words-statistics-translation": "Переклад",
+	"words-statistics-count-learned": "Кількість правильних відповідей",
+	"words-statistics-count-mistake": "Кількість помылок",
+	"words-statistics-date": "Слово доданне"
 }
