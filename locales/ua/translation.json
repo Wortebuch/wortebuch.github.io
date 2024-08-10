@@ -13,6 +13,7 @@
 	"word-title": "Вивчені слова",
 	"add-word-title": "Ви можете додати тут своє слово",
 	"no-words-text": "Немає вивчених слів",
+	"no-main-words-text": "Немає слів",
 	"must-5wort": "Ви повинні додати принаймні 5 слів",
 	"learne-title": "Тут можна вчити слова",
 	"learne-text-finish1": "Ось і фініш! Ви можете вивчити слова заново в будь-який час. ",
@@ -30,5 +31,6 @@
 	"words-statistics-translation": "Переклад",
 	"words-statistics-count-learned": "Кількість правильних відповідей",
 	"words-statistics-count-mistake": "Кількість помылок",
-	"words-statistics-date": "Слово доданне"
+	"words-statistics-date": "Слово доданне",
+	"words-search": "Шукати слова"
 }
