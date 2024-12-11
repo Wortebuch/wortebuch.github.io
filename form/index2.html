@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Форма с валидацией</title>
+		<style>
+			.error {
+				color: red;
+				font-size: 0.9em;
+			}
+		</style>
+		<!-- Подключение библиотеки IMask -->
+		<script src="https://unpkg.com/imask"></script>
+	</head>
+	<body>
+		<form id="subscribeForm" action="/#subscribe" method="post">
+			<label for="name">Ваше имя:</label><br />
+			<input
+				type="text"
+				id="name"
+				name="name"
+				placeholder="Екатерина"
+				required
+			/>
+			<div id="nameError" class="error"></div>
+			<br />
+
+			<label for="whatsapp">Whatsapp номер:</label><br />
+			<input
+				type="tel"
+				id="whatsapp"
+				name="whatsapp"
+				placeholder="+7 (____) ___-__-__"
+				required
+			/>
+			<div id="whatsappError" class="error"></div>
+			<br />
+
+			<button type="submit" id="submitButton" disabled>Оставить заявку</button>
+		</form>
+
+		<script>
+			// Инициализация маски с помощью IMask
+			const whatsappInput = document.getElementById("whatsapp");
+			const whatsappMask = IMask(whatsappInput, {
+				mask: "+7 (000) 000-00-00",
+				lazy: false, // чтобы отображались символы маски, даже если поле пустое
+			});
+
+			// Валидация
+
+			const nameInput = document.getElementById("name");
+			const nameError = document.getElementById("nameError");
+			const whatsappError = document.getElementById("whatsappError");
+			const submitButton = document.getElementById("submitButton");
+
+			// Проверка имени (только русские буквы)
+			nameInput.addEventListener("input", function () {
+				nameError.textContent = "";
+				if (!/^([а-яА-ЯёЁ\s]+)?$/.test(nameInput.value)) {
+					nameError.textContent = "Имя должно содержать только русские буквы.";
+				}
+				validateForm();
+			});
+
+			// Проверка формы для активации кнопки
+			function validateForm() {
+				const name = nameInput.value.trim();
+				const whatsapp = whatsappMask.unmaskedValue; // Получение только цифр из маски
+
+				let isValid = true;
+
+				// Проверка имени
+				if (!name) {
+					nameError.textContent = "Пожалуйста, заполните это поле.";
+					isValid = false;
+				} else if (!/^([а-яА-ЯёЁ\s]+)$/.test(name)) {
+					nameError.textContent = "Имя должно содержать только русские буквы.";
+					isValid = false;
+				}
+
+				// Проверка телефона
+				if (!whatsapp || whatsapp.length < 10) {
+					whatsappError.textContent = "Введите корректный номер телефона.";
+					isValid = false;
+				} else {
+					whatsappError.textContent = "";
+				}
+
+				// Управление кнопкой отправки
+				submitButton.disabled = !isValid;
+			}
+
+			// Проверка формы при вводе
+			nameInput.addEventListener("input", validateForm);
+			whatsappInput.addEventListener("input", validateForm);
+		</script>
+	</body>
+</html>
