@@ -5,14 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Форма с валидацией</title>
 		<style>
-			.error {
+			.input-error {
+				border: 2px solid red;
+			}
+
+			.error-message {
 				color: red;
 				font-size: 0.9em;
 			}
 		</style>
+
 		<!-- Подключение библиотеки IMask -->
 		<script src="https://unpkg.com/imask"></script>
 	</head>
+
 	<body>
 		<form id="subscribeForm" action="/#subscribe" method="post">
 			<label for="name">Ваше имя:</label><br />
@@ -23,7 +29,7 @@
 				placeholder="Екатерина"
 				required
 			/>
-			<div id="nameError" class="error"></div>
+			<div id="nameError" class="error-message"></div>
 			<br />
 
 			<label for="whatsapp">Whatsapp номер:</label><br />
@@ -31,70 +37,145 @@
 				type="tel"
 				id="whatsapp"
 				name="whatsapp"
-				placeholder="+7 (____) ___-__-__"
+				placeholder="+7 (__) _--"
 				required
 			/>
-			<div id="whatsappError" class="error"></div>
+			<div id="whatsappError" class="error-message"></div>
 			<br />
 
 			<button type="submit" id="submitButton" disabled>Оставить заявку</button>
 		</form>
 
 		<script>
-			// Инициализация маски с помощью IMask
+			// Инициализация маски для телефона
 			const whatsappInput = document.getElementById("whatsapp");
 			const whatsappMask = IMask(whatsappInput, {
 				mask: "+7 (000) 000-00-00",
-				lazy: false, // чтобы отображались символы маски, даже если поле пустое
+				lazy: false,
 			});
-
-			// Валидация
 
 			const nameInput = document.getElementById("name");
 			const nameError = document.getElementById("nameError");
-			const whatsappError = document.getElementById("whatsappError");
 			const submitButton = document.getElementById("submitButton");
+			const whatsappError = document.getElementById("whatsappError");
+
+			let isValidationStarted = false; // Флаг, который отслеживает, был ли первый тест валидации
 
 			// Проверка имени (только русские буквы)
-			nameInput.addEventListener("input", function () {
-				nameError.textContent = "";
-				if (!/^([а-яА-ЯёЁ\s]+)?$/.test(nameInput.value)) {
-					nameError.textContent = "Имя должно содержать только русские буквы.";
-				}
-				validateForm();
-			});
-
-			// Проверка формы для активации кнопки
-			function validateForm() {
+			function validateName() {
 				const name = nameInput.value.trim();
-				const whatsapp = whatsappMask.unmaskedValue; // Получение только цифр из маски
-
-				let isValid = true;
-
-				// Проверка имени
-				if (!name) {
-					nameError.textContent = "Пожалуйста, заполните это поле.";
-					isValid = false;
-				} else if (!/^([а-яА-ЯёЁ\s]+)$/.test(name)) {
+				if (name.length < 2) {
+					nameError.textContent = "Имя должно содержать минимум 2 буквы";
+					nameInput.classList.add("input-error");
+					return false;
+				}
+				if (/[^а-яА-ЯёЁ\s]/.test(name)) {
 					nameError.textContent = "Имя должно содержать только русские буквы.";
-					isValid = false;
+					nameInput.classList.add("input-error");
+					return false;
 				}
-
-				// Проверка телефона
-				if (!whatsapp || whatsapp.length < 10) {
-					whatsappError.textContent = "Введите корректный номер телефона.";
-					isValid = false;
-				} else {
-					whatsappError.textContent = "";
+				if (name === "") {
+					nameError.textContent = "Пожалуйста, заполните это поле.";
+					nameInput.classList.add("input-error");
+					return false;
 				}
-
-				// Управление кнопкой отправки
-				submitButton.disabled = !isValid;
+				nameError.textContent = ""; // Убираем ошибку, если имя валидно
+				nameInput.classList.remove("input-error");
+				return true;
 			}
 
-			// Проверка формы при вводе
-			nameInput.addEventListener("input", validateForm);
-			whatsappInput.addEventListener("input", validateForm);
+			function validateName2() {
+				const name = nameInput.value.trim();
+				if (name.length < 2) {
+					return false;
+				}
+				if (/[^а-яА-ЯёЁ\s]/.test(name)) {
+					return false;
+				}
+				if (name === "") {
+					return false;
+				}
+				nameError.textContent = ""; // Убираем ошибку, если имя валидно
+				nameInput.classList.remove("input-error");
+				return true;
+			}
+
+			// Проверка телефона (должно быть ровно 10 цифр)
+			function validateWhatsapp() {
+				const unmaskedWhatsapp = whatsappMask.unmaskedValue.trim(); // Получаем только цифры
+				return unmaskedWhatsapp.length === 10;
+			}
+
+			// Проверка состояния кнопки
+			function checkButtonState() {
+				const isNameValid = validateName();
+				const isWhatsappValid = validateWhatsapp(); // Проверяем только длину номера телефона
+
+				// Кнопка активна, если оба поля валидны
+				submitButton.disabled = !(isNameValid && isWhatsappValid);
+			}
+
+			function checkButtonState2() {
+				const isNameValid = validateName2();
+				const isWhatsappValid = validateWhatsapp(); // Проверяем только длину номера телефона
+
+				// Кнопка активна, если оба поля валидны
+				submitButton.disabled = !(isNameValid && isWhatsappValid);
+			}
+
+			// События для проверки при вводе данных
+			nameInput.addEventListener("input", function () {
+				validateName(); // Проверяем имя при каждом вводе
+				checkButtonState();
+			});
+
+			whatsappInput.addEventListener("input", function () {
+				checkButtonState2();
+				validateWhatsapp();
+			});
+
+			function validateWhatsapp() {
+				const unmaskedWhatsapp = whatsappMask.unmaskedValue.trim(); // Получаем только цифры
+				console.log(unmaskedWhatsapp);
+
+				if (unmaskedWhatsapp.length < 10) {
+					return false;
+				}
+				whatsappError.textContent = ""; // Убираем ошибку, если номер валидный
+				whatsappInput.classList.remove("input-error");
+				return true;
+			}
+
+			function validateWhatsapp2() {
+				const unmaskedWhatsapp = whatsappMask.unmaskedValue.trim(); // Получаем только цифры
+				console.log(unmaskedWhatsapp);
+
+				if (unmaskedWhatsapp.length < 10) {
+					whatsappError.textContent = "Номер должен содержать 10 цифр";
+					whatsappInput.classList.add("input-error");
+					return false;
+				}
+				whatsappError.textContent = ""; // Убираем ошибку, если номер валидный
+				whatsappInput.classList.remove("input-error");
+				return true;
+			}
+
+			whatsappInput.addEventListener("blur", function (e) {
+				validateWhatsapp2();
+			});
+
+			// Включение валидации после первого теста
+			submitButton.addEventListener("click", function (event) {
+				event.preventDefault(); // Останавливаем отправку формы
+				isValidationStarted = true; // Включаем валидацию на ввод
+
+				const isNameValid = validateName();
+				const isWhatsappValid = validateWhatsapp();
+
+				if (isNameValid && isWhatsappValid) {
+					document.getElementById("subscribeForm").submit();
+				}
+			});
 		</script>
 	</body>
 </html>
