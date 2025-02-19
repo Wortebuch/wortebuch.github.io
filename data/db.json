@@ -1,0 +1,53 @@
+{
+	"rights": {
+		"youngPeople": [
+			{
+				"id": 0,
+				"title": "Recht jugendlichen 1234567890-",
+				"text": "Text jugendlichen 1 sdafgadfg"
+			},
+			{
+				"id": 1,
+				"title": "Recht jugendlichen 2",
+				"text": "Text jugendlichen 2"
+			},
+			{
+				"id": 2,
+				"title": "Recht jugendlichen 3",
+				"text": "Text jugendlichen 3"
+			},
+			{
+				"id": 3,
+				"title": "Recht jugendlichen 4",
+				"text": "Text jugendlichen 4"
+			},
+			{
+				"id": 4,
+				"title": "Recht jugendlichen 4",
+				"text": "Text jugendlichen 4"
+			}
+		],
+		"parents": [
+			{
+				"id": 0,
+				"title": "Recht eltern 1",
+				"text": "Text eltern 1"
+			},
+			{
+				"id": 1,
+				"title": "Recht eltern 2",
+				"text": "Text eltern 2"
+			},
+			{
+				"id": 2,
+				"title": "Recht eltern 3",
+				"text": "Text eltern 3"
+			},
+			{
+				"id": 3,
+				"title": "Recht eltern 4",
+				"text": "Text eltern 4"
+			}
+		]
+	}
+}
